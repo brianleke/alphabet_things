@@ -15,13 +15,10 @@ class Alphabet:
 	def _space(self, number):
 		return number * ' '
 
-	def _pre_space(self, number):
-		return (number - 1) * ' '
-
 	def _increment(self, end_position, start_position):
 		number_of_spaces = end_position - start_position
 		space_in_between = 0
-		result = ' ' * number_of_spaces + 'A\n'
+		result = self._space(number_of_spaces) + 'A\n'
 		result += self._append_right_format(end_position, start_position, 1, number_of_spaces, space_in_between) 
 		return result
 
@@ -39,7 +36,7 @@ class Alphabet:
 		number_of_spaces = 0
 		start_position += 1
 		result = self._append_right_format(start_position, end_position, -1, number_of_spaces, space_in_between)
-		result += ' ' * space_in_between  + 'A'
+		result += self._space(space_in_between)  + 'A'
 		return result
 
 	def _formulate_output_string(self, input):
