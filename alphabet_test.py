@@ -56,11 +56,11 @@ class AlphabetTest(unittest.TestCase):
 		self.assertEqual(expected_string, str(Alphabet('B')))
 
 	def test_out_string_for_letter_E_has_both_letters(self):
-		expected_string = '    A\n   B B\n  C   C\n D     D\nE       E\n D     D\n  C   C\n   B B\n    A'
+		expected_string = '    A\n   B B   \n  C   C  \n D     D \nE       E\n D     D \n  C   C  \n   B B   \n    A'
 		self.assertEqual(expected_string, str(Alphabet('E')))
 
 	def test_out_string_for_letter_d_has_both_letters(self):
-		expected_string = '   A\n  B B\n C   C\nD     D\n C   C\n  B B\n   A'
+		expected_string = '   A\n  B B  \n C   C \nD     D\n C   C \n  B B  \n   A'
 		self.assertEqual(expected_string, str(Alphabet('d')))
 
 if __name__ == '__main__':
