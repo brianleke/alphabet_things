@@ -2,6 +2,7 @@ from alphabet_exception import AlphabetException
 import re
 
 class Alphabet:
+	INITIAL_SPACE_COUNT = 0
 	def __init__(self, input):
 		self._validate_input_variable(input)
 		self.result = self._formulate_output_string(input)
@@ -17,9 +18,8 @@ class Alphabet:
 
 	def _increment(self, end_position, start_position):
 		number_of_spaces = end_position - start_position
-		space_in_between = 0
 		result = self._space(number_of_spaces) + 'A\n'
-		result += self._append_right_format(end_position, start_position, 1, number_of_spaces, space_in_between) 
+		result += self._append_right_format(end_position, start_position, 1, number_of_spaces, Alphabet.INITIAL_SPACE_COUNT) 
 		return result
 
 	def _append_right_format(self, end_position, start_position, flag, number_of_spaces, space_in_between):
@@ -33,9 +33,7 @@ class Alphabet:
 
 	def _decrement(self, end_position, start_position):
 		space_in_between = end_position - start_position
-		number_of_spaces = 0
-		start_position += 1
-		result = self._append_right_format(start_position, end_position, -1, number_of_spaces, space_in_between)
+		result = self._append_right_format(start_position + 1, end_position, -1, Alphabet.INITIAL_SPACE_COUNT, space_in_between)
 		result += self._space(space_in_between)  + 'A'
 		return result
 
