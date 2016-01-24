@@ -9,8 +9,8 @@ class Alphabet:
 
 
 	def _validate_input_variable(self, input):
-		result = re.match('^[A-z]$', input)
-		if not result:
+		valid_match = re.match('^[A-z]$', input)
+		if not valid_match:
 			raise AlphabetException()
 
 	def _space(self, number):
