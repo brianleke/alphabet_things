@@ -2,12 +2,10 @@ from alphabet_exception import AlphabetException
 import re
 
 class Alphabet:
-	INITIAL_SPACE_COUNT = 0
 	SPACE = ' '
 	def __init__(self, input):
 		self._validate_input_variable(input)
 		self.result = self._formulate_output_string(input)
-
 
 	def _validate_input_variable(self, input):
 		valid_match = re.match('^[A-z]$', input)
@@ -32,16 +30,14 @@ class Alphabet:
 		return second_half
 		
 	def _first_half_of_pyramid(self, start_counter, end_counter):
-		number_of_spaces = end_counter - start_counter
-		space_in_between = multiplier = Alphabet.INITIAL_SPACE_COUNT
-
+		multiplier = 0
 		first_half = ''
 		
 		for letter_position in range(start_counter, end_counter):
-			number_of_spaces -= 1
-			space_in_between += 1
+			number_of_spaces = end_counter - letter_position - 1
+			space_in_between = 2 * multiplier + 1
 			current_letter = chr(letter_position + 1)
-			first_half += self._space(number_of_spaces) + current_letter + self._space(space_in_between) + self._space(multiplier) + current_letter + self._space(number_of_spaces) + '\n'
+			first_half += self._space(number_of_spaces) + current_letter + self._space(space_in_between) + current_letter + self._space(number_of_spaces) + '\n'
 			multiplier += 1
 		
 		return first_half
