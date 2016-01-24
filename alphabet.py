@@ -19,21 +19,23 @@ class Alphabet:
 	def _increment(self, end_position, start_position):
 		number_of_spaces = end_position - start_position
 		result = self._space(number_of_spaces) + 'A\n'
-		result += self._append_right_format(start_position, end_position, 1, number_of_spaces, Alphabet.INITIAL_SPACE_COUNT) 
+		result += self._append_right_format(start_position, end_position, 1, number_of_spaces, Alphabet.INITIAL_SPACE_COUNT, 0) 
 		return result
 
-	def _append_right_format(self, start_counter, end_counter, flag, number_of_spaces, space_in_between):
+	def _append_right_format(self, start_counter, end_counter, flag, number_of_spaces, space_in_between, multiplier_flag):
 		result = ''
+		multiplier = space_in_between + multiplier_flag
 		for letter_position in range(start_counter, end_counter, flag):
 			number_of_spaces -= flag
 			space_in_between += flag
 			current_letter = chr(letter_position + flag)
-			result += self._space(number_of_spaces) + current_letter + self._space(space_in_between) + current_letter + '\n'
+			result += self._space(number_of_spaces) + current_letter + self._space(space_in_between) + self._space(multiplier) + current_letter + '\n'
+			multiplier += flag
 		return result
 
 	def _decrement(self, end_position, start_position):
 		space_in_between = end_position - start_position
-		result = self._append_right_format(end_position, start_position + 1, -1, Alphabet.INITIAL_SPACE_COUNT, space_in_between)
+		result = self._append_right_format(end_position, start_position + 1, -1, Alphabet.INITIAL_SPACE_COUNT, space_in_between, -2)
 		result += self._space(space_in_between)  + 'A'
 		return result
 
