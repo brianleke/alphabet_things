@@ -48,7 +48,7 @@ class AlphabetTest(unittest.TestCase):
 			self.fail("Alphabet exception raised")
 
 	def test_output_string_for_letter_A_is_A(self):
-		expected_string = 'Aa'
+		expected_string = 'A'
 		self.assertEqual(expected_string, str(Alphabet('A')))
 
 	def test_out_string_for_letter_B_has_both_letters(self):
