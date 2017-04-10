@@ -1,4 +1,4 @@
-READ ME file for the alphabet shokunin
+This is a project for the Shokunin Challenge which runs on Travis CI and generates the Build Status as well as the Coverage metrics
 
 [![Build Status](https://www.travis-ci.org/brianleke/alphabet_things.svg?branch=master)](https://www.travis-ci.org/brianleke/alphabet_things)
 
