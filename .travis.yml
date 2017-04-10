@@ -9,8 +9,8 @@ install:
 
 # command to run tests
 script:
-  - coverage run alphabet_test.py
-  - coverage run alphabet_exception_test.py
+  - coverage run -a alphabet_test.py
+  - coverage run -a alphabet_exception_test.py
   - coverage report -m
   - coverage html
 
