@@ -10,6 +10,8 @@ install:
 # command to run tests
 script:
   - coverage run alphabet_test.py
+  - coverage report -m
+  - coverage html
 
 after_success:
   - coveralls
