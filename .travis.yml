@@ -9,7 +9,7 @@ install:
 
 # command to run tests
 script:
-  - coverage run python alphabet_test.py
+  - coverage run alphabet_test.py
 
 after_success:
   - coveralls
