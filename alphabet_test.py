@@ -35,18 +35,6 @@ class AlphabetTest(unittest.TestCase):
 		raised_exception = exception_mock.exception
 		self.assertEqual(expected_message, raised_exception.message)
 
-	def test_should_not_throw_the_alphabet_exception_on_initialisation_for_valid_input(self):
-		try:
-			Alphabet('A')
-		except:
-			self.fail("Alphabet exception raised")
-
-	def test_should_not_throw_the_alphabet_exception_on_initialisation_for_valid_lowercase_input(self):
-		try:
-			Alphabet('a')
-		except:
-			self.fail("Alphabet exception raised")
-
 	def test_output_string_for_letter_A_is_A(self):
 		expected_string = 'A'
 		self.assertEqual(expected_string, str(Alphabet('A')))
